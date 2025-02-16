@@ -8,6 +8,7 @@ Created on Sun May  3 16:34:18 2020
 import requests
 import hashlib
 import sys
+from flask import Flask
 
 def request_api_data(query_char):
     url = 'https://api.pwnedpasswords.com/range/' + query_char
@@ -44,24 +45,24 @@ def main(args):
             print(f'{args} was found {count} times..you should change your password')
         else:
             print(f'{args} was not found..carry on')
-        return 'done!'
+        return count
 
 def get_inp():
     print('Enter your password. Do not worry, we do not see what you enter')
     (main(input()))
 
-if __name__ == '__main__':
-    count = 1
-    get_inp()
-    while count:
-        print('Do you want to check any other password? Y or N')
-        inp = input()
-        if inp == 'Y' or inp == 'y':
-            get_inp()
-        else:
-            if inp == 'N' or inp == 'n':
-                print('Bbye, take care')
-                break
-            else:
-                print('please enter correct input..Either Y or N')
-                continue
+# if __name__ == '__main__':
+#     count = 1
+#     get_inp()
+#     while count:
+#         print('Do you want to check any other password? Y or N')
+#         inp = input()
+#         if inp == 'Y' or inp == 'y':
+#             get_inp()
+#         else:
+#             if inp == 'N' or inp == 'n':
+#                 print('Bbye, take care')
+#                 break
+#             else:
+#                 print('please enter correct input..Either Y or N')
+#                 continue

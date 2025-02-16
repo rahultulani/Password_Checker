@@ -1,0 +1,26 @@
+<!doctype html>
+<html style="background-color: black">
+    <link rel="stylesheet" href="../static/style.css" />
+    <head style="text-align: center;">
+        <title class="text_color">
+            Password Checker
+        </title>
+        <h1 class="text_color">
+            Password Checker
+        </h1>
+        <p class="text_color">
+            Please enter your password below
+        </p>
+        <form method="POST">
+            <input name="user_password">
+            <input type="submit" value="Submit">
+        </form>
+        {% if risk %}
+            <p class="blink_me">Your password is at risk and it was compromised {{ count }} times, please consider changing your password</p>
+        {% endif %}
+        {% if safe %}
+            <p class="text_color">Your password is safe to use :)</p>
+        {% endif %}
+    </head>
+<p class="text_color">Note: We do not store your entered password anywhere.</p>
+</html>
